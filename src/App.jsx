@@ -16,7 +16,7 @@ export default function App() {
   const [currentColors, setCurrentColors] = useState(null);
 
   const basecolorsRegistryContractAddress =
-    "0xaD8CdD14E2f80a50A750335538654740fE3Cb8F8";
+    "0xE1f532A8A2750e93b4271b01B76cdA4FAb4b0dF2";
 
   const abiForGetColorFunction = [
     {
