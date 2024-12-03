@@ -162,29 +162,34 @@ export default function App() {
           </p>
 
           {currentColors && (
-            <div
-              className="mb-6 p-6 rounded-lg"
-            style={{ backgroundColor: currentColors?.[1] || "#ffffff" }}
-          >
-            <div
-              className="p-4 rounded-md"
-              style={{ backgroundColor: currentColors?.[0] || "#ffffff" }}
-            >
-              <p
-                className="text-lg font-medium"
-                style={{ color: currentColors?.[2] || "#000000" }}
-              >
-                Preview of Your Current Color Scheme
-              </p>
-              <p
-                className="text-sm"
-                style={{ color: currentColors?.[2] || "#000000" }}
-              >
-                This is your current color scheme. You can change it by
-                selecting new colors.
-              </p>
-            </div>
-            </div>
+             <div className="mb-6 p-0 rounded-lg w-full max-w-3xl">
+             <div
+               className="p-4 space-y-4"
+               style={{
+                 backgroundColor: currentColors?.[1] || "#ffffff",
+                 color: currentColors?.[2] || "#000000",
+               }}
+             >
+               <div className="flex flex-row gap-2 items-center justify-between">
+                 <h2 className="text-base md:text-xl font-semibold">
+                   Your Current Color Scheme
+                 </h2>
+                 <button
+                   className="transition-colors py-2 px-4 rounded-md hover:opacity-80 text-sm md:text-base"
+                   style={{
+                     backgroundColor: currentColors?.[0] || "#ffffff",
+                     color: currentColors?.[2] || "#000000",
+                   }}
+                 >
+                    Button
+                 </button>
+               </div>
+               <p className="text-sm md:text-base">
+                 This is your current color scheme. You can change it by
+                 selecting new colors below.
+               </p>
+             </div>
+           </div>
           )}
 
           <div className="w-full max-w-3xl bg-white rounded-lg shadow-sm p-6">
@@ -263,26 +268,32 @@ export default function App() {
 
             {/* Color Preview */}
             <div
-              className="mb-6 p-6 rounded-lg"
-              style={{ backgroundColor: backgroundColor || "#ffffff" }}
+              className="mb-6 p-4"
+              style={{ backgroundColor: backgroundColor || currentColors?.[1] }}
             >
-              <div
-                className="p-4 rounded-md"
-                style={{ backgroundColor: primaryColor || "#f3f4f6" }}
-              >
-                <p
-                  className="text-lg font-medium"
-                  style={{ color: textColor || "#000000" }}
+              <div className="flex flex-row gap-2 items-center justify-between">
+                <h2
+                  className="text-base md:text-xl font-semibold whitespace-nowrap"
+                  style={{ color: textColor || currentColors?.[2] }}
                 >
-                  Preview of Your Color Scheme
-                </p>
-                <p
-                  className="text-sm"
-                  style={{ color: textColor || "#000000" }}
+                  Preview of New Color Scheme
+                </h2>
+                <button
+                  className="transition-colors py-2 px-4 rounded-md hover:opacity-80 text-sm md:text-base"
+                  style={{
+                    backgroundColor: primaryColor || currentColors?.[0],
+                    color: textColor || currentColors?.[2],
+                  }}
                 >
-                  This is how your selected colors will look together
-                </p>
+                   Button
+                </button>
               </div>
+              <p
+                className="mt-4 text-sm md:text-base"
+                style={{ color: textColor || currentColors?.[2] }}
+              >
+                This is how your selected colors will look together.
+              </p>
             </div>
 
             {/* Action Buttons */}
